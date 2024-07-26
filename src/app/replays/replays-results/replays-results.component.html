@@ -1,0 +1,11 @@
+<div (click)="openReplay()" class="w-100 d-flex flex-column rounded shadow mt-4 search-result">
+  <div class="d-flex flex-row justify-content-between m-2">
+    <p style="width: 250px">{{ result['players'][0] }} vs. {{ result['players'][1] }}</p>
+    <p>Date: {{ convertUnixTime(result['uploadtime']) }}</p>
+    <i [ngClass]="isFavorite ? 'fa-solid fa-heart' : 'fa-regular fa-heart'"
+       #heartIcon (click)="favoritesToggle($event, heartIcon)"></i>
+  </div>
+  <div class="d-flex flex-row justify-content-between m-2">
+    <p>Format: {{ result['format'] }}</p>
+  </div>
+</div>

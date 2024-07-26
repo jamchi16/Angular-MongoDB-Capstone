@@ -1,0 +1,8 @@
+.link-primary {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.link-primary:hover {
+  color: darkblue;
+}

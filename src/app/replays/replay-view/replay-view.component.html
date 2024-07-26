@@ -1,0 +1,7 @@
+<div class="container-fluid text-center h-100 align-items-center">
+  <div id="contentContainer" class="d-flex flex-column justify-content-center align-items-center h-100">
+    <h3 *ngIf="this.iframeSource['changingThisBreaksApplicationSecurity'] === ''">Replay Viewer</h3>
+    <iframe *ngIf="this.iframeSource['changingThisBreaksApplicationSecurity'] !== ''" [src]="iframeSource" class="w-100 h-100"></iframe>
+    <span *ngIf="this.iframeSource['changingThisBreaksApplicationSecurity'] === ''">Select a replay to watch.</span>
+  </div>
+</div>

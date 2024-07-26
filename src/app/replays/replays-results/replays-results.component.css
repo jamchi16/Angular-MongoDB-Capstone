@@ -1,0 +1,16 @@
+.search-result{
+  cursor: pointer;
+}
+
+.search-result:hover {
+  background: aliceblue;
+}
+i {
+  font-size: 16px;
+  transition: font-size 0.3s ease;
+  color: #0d6efd;;
+}
+
+i:hover {
+  font-size: 22px;
+}

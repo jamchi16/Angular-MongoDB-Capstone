@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a routerLink="/" class="navbar-brand ms-4">Showdown Replays</a>
+  <button class="navbar-toggler" type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="nav navbar-nav">
+      <li class="nav-item" routerLinkActive="active" *ngIf="isAuthenticated">
+        <a class="nav-link"  routerLink="/replays">Replays</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active" *ngIf="isAuthenticated && isFavoriteDisplayed">
+        <a class="nav-link" style="cursor: pointer" (click)="changeDisplay()">Search</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active" *ngIf="isAuthenticated && !isFavoriteDisplayed">
+        <a class="nav-link" style="cursor: pointer" (click)="changeDisplay()">Favorites</a>
+      </li>
+      <li class="nav-item" *ngIf="isAuthenticated">
+        <a class="nav-link"  style="cursor: pointer;" (click)="onLogout()">Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>

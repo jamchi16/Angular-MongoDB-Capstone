@@ -1,0 +1,25 @@
+<div class="row justify-content-center align-items-start h-100">
+  <div style="min-height: 400px; height: 75vh" class="col-lg-6">
+    <div *ngIf="isFavoriteDisplayed"
+         class="d-flex flex-column justify-content-start align-items-center h-100 p-2">
+      <h3>My Favorite Replays</h3>
+
+      <div *ngIf="replayData.length === 0">
+        <p>Search for replays to add!</p>
+      </div>
+
+      <div class="container-fluid overflow-auto w-100 p-4" *ngIf="replayData.length > 0">
+        <app-replays-results *ngFor="let result of replayData;"
+                             [result]="result">
+        </app-replays-results>
+      </div>
+    </div>
+
+    <app-replay-search *ngIf="!isFavoriteDisplayed"></app-replay-search>
+  </div>
+
+  <div style="min-height: 400px; height: 75vh" class="col-lg-6 p-2 ps-4 shadow rounded">
+    <app-replay-view></app-replay-view>
+  </div>
+
+</div>

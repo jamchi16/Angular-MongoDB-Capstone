@@ -1,0 +1,44 @@
+<div class="d-flex justify-content-start flex-column align-items-center w-100 h-100">
+
+  <div *ngIf="
+  searchForm.get('userOne')?.value &&
+  searchForm.get('userTwo')?.value &&
+  searchForm.get('userTwo')?.hasError('sameUser') &&
+  searchForm.get('userTwo')?.touched">
+    <span style="color: red" class="error-message">Error: Player names must be different</span>
+  </div>
+
+  <form [formGroup]="searchForm" class="d-flex flex-row justify-content-center" (ngSubmit)="onSubmit()">
+    <div class="form-group m-2">
+      <label for="userOne">Player One:</label>
+      <input type="text" id="userOne" class="form-control" formControlName="userOne">
+    </div>
+    <div class="form-group m-2 ">
+      <label for="userTwo">Player Two:</label>
+      <input type="text" id="userTwo" class="form-control" formControlName="userTwo">
+    </div>
+    <div class="form-group m-2 ">
+      <label for="battleFormat">Format:</label>
+      <input type="text" id="battleFormat" class="form-control" formControlName="battleFormat">
+    </div>
+    <div class="d-flex justify-content-center m-2 align-items-end">
+      <button class="btn btn-primary" type="submit" style="height: 37px" [disabled]="!searchForm.valid">Search</button>
+    </div>
+  </form>
+
+
+  <div *ngIf="searchResults.length === 0 && hasMadeSearch">
+    <p>No results found.</p>
+  </div>
+
+  <div *ngIf="!hasMadeSearch">
+    <p>Please enter search terms to find replays.</p>
+  </div>
+
+  <div class="container-fluid overflow-auto w-100" *ngIf="searchResults.length > 0">
+    <app-replays-results *ngFor="let result of searchResults;"
+                         [result]="result">
+    </app-replays-results>
+  </div>
+
+</div>
